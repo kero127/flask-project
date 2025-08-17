@@ -64,4 +64,6 @@ def delete_task(task_id):
     return jsonify({"message": "Task deleted"})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # فقط للتشغيل المحلي، على Render سيتم تشغيله بواسطة gunicorn
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+
